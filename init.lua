@@ -25,7 +25,7 @@ hyper:bind({}, 'l', function() fireKeyEvent("right") end, nil, function() fireKe
 hyper:bind({}, 'f', function() hs.application.launchOrFocusByBundleID("com.brave.Browser") end)
 --hyper:bind({}, 'f', function() hs.application.launchOrFocusByBundleID("com.google.Chrome") end)
 
-hyper:bind({}, 'd', function() hs.application.launchOrFocusByBundleID("com.googlecode.iterm2") end)
+hyper:bind({}, 'd', function() hs.application.launchOrFocusByBundleID("com.microsoft.VSCode") end)
 
 hyper:bind({}, 's', function() hs.application.launchOrFocusByBundleID("com.tinyspeck.slackmacgap") end)
 hyper:bind({}, 'g', function() hs.application.launchOrFocus("Gmail") end)
