@@ -1,7 +1,11 @@
+tell application "System Events"
+	set wasRunning to (bundle identifier of processes) contains "{{BUNDLE_ID}}"
+end tell
+
 tell application id "{{BUNDLE_ID}}"
 	activate
 	set targetURL to "{{URL}}"
-	
+
 	try
 		repeat with windowIndex from 1 to count of windows
 			set currentWindow to window windowIndex
@@ -25,15 +29,29 @@ tell application id "{{BUNDLE_ID}}"
 			end repeat
 		end repeat
 		
-		if (count of windows) = 0 then make new window
-		
-		tell front window
-			make new tab with properties {URL:targetURL}
-			set active tab index to (count of tabs)
-			set index to 1
-		end tell
-		
-		return "CREATED"
+		if wasRunning then
+			if (count of windows) = 0 then
+				make new window
+				tell front window
+					set URL of active tab to targetURL
+					set index to 1
+				end tell
+				return "CREATED"
+			else
+				tell front window
+					make new tab with properties {URL:targetURL}
+					set active tab index to (count of tabs)
+					set index to 1
+				end tell
+				return "CREATED"
+			end if
+		else
+			tell front window
+				set URL of active tab to targetURL
+				set index to 1
+			end tell
+			return "CREATED"
+		end if
 		
 	on error errorMessage
 		return "ERROR: " & errorMessage
