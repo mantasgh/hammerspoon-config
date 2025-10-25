@@ -26,6 +26,7 @@ hyper:bind({}, 'f', function() hs.application.launchOrFocusByBundleID("com.brave
 --hyper:bind({}, 'f', function() hs.application.launchOrFocusByBundleID("com.google.Chrome") end)
 
 hyper:bind({}, 'd', function() hs.application.launchOrFocusByBundleID("com.microsoft.VSCode") end)
+hyper:bind({}, 't', function() hs.application.launchOrFocusByBundleID("com.mitchellh.ghostty") end)
 
 hyper:bind({}, 's', function() hs.application.launchOrFocusByBundleID("com.tinyspeck.slackmacgap") end)
 hyper:bind({}, 'g', function() hs.application.launchOrFocus("Gmail") end)
